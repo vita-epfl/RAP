@@ -1,15 +1,7 @@
 <div align="center">
-<h1 align="center" style="
-  font-size: 4rem;
-  font-weight: 800;
-  background: linear-gradient(90deg, #648FFF 35%, #DC267F 65%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-">
-  RAP
-</h1>
-<h3>3D Rasterization Augmented End-to-End Planning</h3>
+  <img src="docs/rap_logo.png" width="100">
+  <h3>3D Rasterization Augmented End-to-End Planning</h3>
+</div>
 
 [Lan Feng](https://alan-lanfeng.github.io/)<sup>1,†</sup>, 
 [Yang Gao](https://people.epfl.ch/yang.gao?lang=en/)<sup>1,†</sup>, 
