@@ -11,6 +11,5 @@ cache
 wandb
 *.jpg
 *.ckpt
-*.png
 MySubmission
 *.json
