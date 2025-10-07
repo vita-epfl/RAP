@@ -1,0 +1,2 @@
+_target_: navsim.planning.training.dataset_builder.build_navsim_qa_dataset
+_convert_: 'all'
