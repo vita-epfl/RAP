@@ -197,11 +197,17 @@ Python $NAVSIM_DEVKIT_ROOT/navsim/planning/script/run_waymo_submission.py \
         agent.checkpoint_path=./waymo_submission/1.ckpt
 ```
 ## Checkpoints
-> Results on NAVSIM
+> Results on NAVSIM v1
 
 | Method | Model Size | Backbone | PDMS | Weight Download |
 | :---: | :---: | :---: | :---:  | :---: |
 | RAP-DINO | 888M | DINOv3-h16+ | 93.8 | [Hugging Face](https://huggingface.co/Lanl11/RAP_ckpts/tree/main) |
+
+> Results on NAVSIM v2
+
+| Method | Model Size | Backbone | EPDMS | Weight Download |
+| :---: | :---: | :---: | :---:  | :---: |
+| RAP-DINO | 888M | DINOv3-h16+ | 39.6 | [Hugging Face](https://huggingface.co/Lanl11/RAP_ckpts/tree/main) |
 
 > Results on Waymo
 
