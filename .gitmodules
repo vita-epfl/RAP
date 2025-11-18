@@ -1,0 +1,6 @@
+[submodule "mmcv"]
+	path = mmcv
+	url = https://github.com/open-mmlab/mmcv.git
+[submodule "nuplan-devkit"]
+        path = nuplan-devkit
+        url = https://github.com/motional/nuplan-devkit
