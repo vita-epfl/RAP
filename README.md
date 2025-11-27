@@ -117,6 +117,24 @@ cache.cache_path=./train_metric_cache \
 worker.threads_per_node=32 \
 ```
 
+
+Set ray to True.
+https://github.com/vita-epfl/RAP/blob/1d9a886e00a202021e0378b96f19438035cec75d/navsim/agents/rap_dino/rap_agent.py#L46
+And run the following before starting training for accelerated pdm score calculation.
+
+```
+ulimit -u 65535
+redis_pw=$(openssl rand -hex 16)            
+ray start --head --port 6396 --num-gpus 8 \
+          --dashboard-host 0.0.0.0 \
+          --redis-password "$redis_pw"
+
+
+export ip_head="127.0.0.1:6396"             
+export redis_password="$redis_pw"
+export num_nodes=1
+```
+
 3. train navsim model
 ```bash
 python navsim/planing/script/run_training.py \
