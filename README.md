@@ -46,6 +46,7 @@ It leverages lightweight **3D rasterization** to generate counterfactual recover
 ```bash
 conda create -n rap python=3.9 
 conda activate rap
+# please adjust the torch version according to your cuda version
 pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
 pip install -e ./nuplan-devkit
 pip install -e .
