@@ -240,22 +240,20 @@ class BEVFormerEncoder(TransformerLayerSequence):
 
                 zs = zs[None, None, :, None].repeat(bs, len_bev, 1, 1)
 
-                ref_pos = self.compute_corners(ref_2d.reshape(-1, 3)).reshape(-1, len_bev, 4, 2)
+                # ref_pos = self.compute_corners(ref_2d.reshape(-1, 3)).reshape(-1, len_bev, 4, 2)
 
-                P = self.num_points_in_pillar
-                B = ref_pos.shape[0]
-                zs_rep = zs.unsqueeze(2).repeat(1, 1, 4, 1, 1).reshape(B, len_bev, 4 * P, 1)  # (B, len_bev, 4*P, 1)
+                # P = self.num_points_in_pillar
+                # B = ref_pos.shape[0]
+                # zs_rep = zs.unsqueeze(2).repeat(1, 1, 4, 1, 1).reshape(B, len_bev, 4 * P, 1)  # (B, len_bev, 4*P, 1)
 
-                # 角点 (x,y) 也复制到每个 pillar 上，并展平到 4*P
-                ref_pos_rep = ref_pos.unsqueeze(3).repeat(1, 1, 1, P, 1).reshape(B, len_bev, 4 * P, 2)  # (B, len_bev, 4*P, 2)
+                # ref_pos_rep = ref_pos.unsqueeze(3).repeat(1, 1, 1, P, 1).reshape(B, len_bev, 4 * P, 2)  # (B, len_bev, 4*P, 2)
 
-                # 拼接成 (x, y, z) 并保持你原来的输出布局: (B, 4*P, len_bev, 3)
-                ref_3d = torch.cat([ref_pos_rep, zs_rep], dim=-1).permute(0, 2, 1, 3)
-                # ref_pos =self.compute_corners(ref_2d.reshape(-1,3)).reshape(-1,len_bev,4,2)
+                # ref_3d = torch.cat([ref_pos_rep, zs_rep], dim=-1).permute(0, 2, 1, 3)
+                ref_pos =self.compute_corners(ref_2d.reshape(-1,3)).reshape(-1,len_bev,4,2)
 
-                # zs=zs.repeat(1,1,4,1)
+                zs=zs.repeat(1,1,4,1)
 
-                # ref_3d = torch.cat([ref_pos.repeat(1, 1, self.num_points_in_pillar, 1), zs], dim=-1).permute(0, 2, 1, 3)
+                ref_3d = torch.cat([ref_pos.repeat(1, 1, self.num_points_in_pillar, 1), zs], dim=-1).permute(0, 2, 1, 3)
                 
                 reference_points = ref_3d.to(torch.float32).clone()
 
